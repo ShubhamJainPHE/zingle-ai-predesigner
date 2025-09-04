@@ -1,5 +1,4 @@
 import React from 'react';
-import { DollarSign, Clock, Zap } from 'lucide-react';
 
 export const ValuePropositionSection: React.FC = () => {
   return (
