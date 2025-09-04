@@ -66,12 +66,6 @@ export const HeroSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Trust indicators */}
-            <div className="mt-10">
-              <p className="text-sm text-secondary-500 font-medium">
-                TRUSTED BY 100+ DATA TEAMS WORLDWIDE
-              </p>
-            </div>
           </div>
 
           <div className="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">

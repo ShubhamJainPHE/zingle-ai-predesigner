@@ -7,7 +7,6 @@ import { ValuePropositionSection } from '@/components/sections/ValuePropositionS
 import { CTOTestimonialSection } from '@/components/sections/CTOTestimonialSection';
 import { FeaturesSection } from '@/components/sections/FeaturesSection';
 import { FlywheelSection } from '@/components/sections/FlywheelSection';
-import { TeamSection } from '@/components/sections/TeamSection';
 import { ContactSection } from '@/components/sections/ContactSection';
 
 export default function Home() {
@@ -20,7 +19,6 @@ export default function Home() {
       <CTOTestimonialSection />
       <FeaturesSection />
       <FlywheelSection />
-      <TeamSection />
       <ContactSection />
     </Layout>
   );

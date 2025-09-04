@@ -53,9 +53,6 @@ export const ProblemSolutionSection: React.FC = () => {
                     <div className="font-mono text-red-700 font-semibold mb-2">
                       {example.schema}
                     </div>
-                    <div className="text-red-600 text-sm">
-                      Raw schema data without business context
-                    </div>
                   </div>
                 ))}
               </div>
