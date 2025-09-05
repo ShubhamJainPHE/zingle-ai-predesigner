@@ -76,8 +76,8 @@ export const ProblemSolutionSection: React.FC = () => {
                   
                   <div className="bg-white rounded p-4 font-mono text-sm text-gray-800">
                     <div className="text-gray-600 mb-2">SELECT * FROM customers</div>
-                    <div className="text-gray-600 mb-2">WHERE payment_status = 'unpaid'</div>
-                    <div className="text-gray-600 mb-4">AND created_date &gt; '2024-08-05'</div>
+                    <div className="text-gray-600 mb-2">WHERE payment_status = &apos;unpaid&apos;</div>
+                    <div className="text-gray-600 mb-4">AND created_date &gt; &apos;2024-08-05&apos;</div>
                     
                     <div className="space-y-2 text-xs">
                       <div>customer_id: 1001 | status: 3 | amount: NULL</div>

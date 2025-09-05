@@ -131,7 +131,7 @@ export const AdoptionCurveSection: React.FC = () => {
                 <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
                 <div className="text-red-700">
                   <div className="font-semibold">Confusing responses</div>
-                  <div className="text-sm">AI doesn't understand business context</div>
+                  <div className="text-sm">AI doesn&apos;t understand business context</div>
                 </div>
               </li>
               <li className="flex items-start space-x-3">
