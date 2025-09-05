@@ -1,25 +1,11 @@
-import React from 'react';
-import { AlertTriangle, CheckCircle, Brain, Database, Code } from 'lucide-react';
+'use client';
+
+import React, { useState } from 'react';
+import { AlertTriangle, Terminal, Play, ArrowRight, CheckCircle, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 
 export const ProblemSolutionSection: React.FC = () => {
-  const aiExamples = [
-    {
-      schema: 'customer_status = 3',
-      meaning: 'Enterprise customer in renewal discussion',
-      context: 'High-value client requiring strategic attention'
-    },
-    {
-      schema: 'payment_date = NULL',
-      meaning: 'Transaction might be pending bank confirmation',
-      context: 'Normal processing delay, not a payment failure'
-    },
-    {
-      schema: 'failed order',
-      meaning: 'Might be due to payment failure or RTO or cancelled by user',
-      context: 'Multiple failure modes requiring different responses'
-    }
-  ];
+  const [query, setQuery] = useState("Show me customers who haven't paid in the last 30 days");
 
   return (
     <section className="section-padding bg-white" id="how-it-works">
@@ -30,79 +16,151 @@ export const ProblemSolutionSection: React.FC = () => {
             The Problem
           </div>
           <h2 className="text-3xl font-bold tracking-tight text-secondary-900 sm:text-4xl mb-4">
-            AI agents within your current tools are good,<br />
+            All AI agents are using same models and techniques,<br />
             you just need to teach them your business
           </h2>
         </div>
 
-        {/* AI Comparison */}
-        <div className="max-w-5xl mx-auto mb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* What AI Sees */}
-            <div className="space-y-6">
-              <div className="text-center lg:text-left">
-                <h3 className="text-xl font-bold text-red-600 mb-4 flex items-center justify-center lg:justify-start">
-                  <Database className="w-6 h-6 mr-3" />
-                  What Your AI Sees
-                </h3>
+        {/* Command Line Interface */}
+        <div className="max-w-4xl mx-auto mb-12">
+          <div className="bg-gray-900 rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-gray-800 px-4 py-2 flex items-center space-x-2">
+              <div className="flex space-x-1">
+                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
               </div>
-              
-              <div className="space-y-4">
-                {aiExamples.map((example, index) => (
-                  <div key={index} className="bg-red-50 border border-red-200 rounded-lg p-4">
-                    <div className="font-mono text-red-700 font-semibold mb-2">
-                      {example.schema}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="bg-red-100 rounded-lg p-4 text-center">
-                <div className="flex items-center justify-center mb-2">
-                  <AlertTriangle className="w-5 h-5 text-red-600 mr-2" />
-                  <span className="font-semibold text-red-800">AI sees schema, predicts your business</span>
-                </div>
-              </div>
+              <Terminal className="w-4 h-4 text-gray-400 ml-2" />
+              <span className="text-gray-300 text-sm">AI Query Console</span>
             </div>
-
-            {/* What It Should Understand */}
-            <div className="space-y-6">
-              <div className="text-center lg:text-left">
-                <h3 className="text-xl font-bold text-green-600 mb-4 flex items-center justify-center lg:justify-start">
-                  <Brain className="w-6 h-6 mr-3" />
-                  What It Should Understand
-                </h3>
+            
+            <div className="p-6">
+              <div className="flex items-center space-x-3 mb-4">
+                <span className="text-green-400 font-mono">$</span>
+                <input
+                  type="text"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  className="flex-1 bg-transparent text-white font-mono text-lg outline-none placeholder-gray-400"
+                  placeholder="Type your business question in natural language..."
+                />
               </div>
               
-              <div className="space-y-4">
-                {aiExamples.map((example, index) => (
-                  <div key={index} className="bg-green-50 border border-green-200 rounded-lg p-4">
-                    <div className="font-semibold text-green-800 mb-2">
-                      {example.meaning}
-                    </div>
-                    <div className="text-green-600 text-sm">
-                      {example.context}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="bg-green-100 rounded-lg p-4 text-center">
-                <div className="flex items-center justify-center mb-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 mr-2" />
-                  <span className="font-semibold text-green-800">AI understands business, helps you improve it</span>
-                </div>
-              </div>
+              <Button 
+                className="bg-primary-600 hover:bg-primary-700 text-white"
+                size="sm"
+              >
+                <Play className="w-4 h-4 mr-2" />
+                Run the question
+              </Button>
             </div>
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center">
-          <Button size="lg" className="bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800">
-            <Code className="mr-2 h-5 w-5" />
-            Try Playground
-          </Button>
+        {/* Comparison Section */}
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            {/* Without Zingle AI */}
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold text-red-600 mb-6 text-center">
+                Without Zingle AI
+              </h3>
+              
+              <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6">
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-2 mb-4">
+                    <AlertCircle className="w-5 h-5 text-red-500" />
+                    <span className="font-semibold text-red-800">Generic AI Output</span>
+                  </div>
+                  
+                  <div className="bg-white rounded p-4 font-mono text-sm text-gray-800">
+                    <div className="text-gray-600 mb-2">SELECT * FROM customers</div>
+                    <div className="text-gray-600 mb-2">WHERE payment_status = 'unpaid'</div>
+                    <div className="text-gray-600 mb-4">AND created_date &gt; '2024-08-05'</div>
+                    
+                    <div className="space-y-2 text-xs">
+                      <div>customer_id: 1001 | status: 3 | amount: NULL</div>
+                      <div>customer_id: 1002 | status: 5 | amount: 2500</div>
+                      <div>customer_id: 1003 | status: 3 | amount: NULL</div>
+                    </div>
+                  </div>
+                  
+                  <div className="text-red-700 text-sm">
+                    ❌ Raw data without business context<br/>
+                    ❌ Unclear what status codes mean<br/>
+                    ❌ No insight into next actions
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* With Zingle AI */}
+            <div className="space-y-4 relative">
+              <h3 className="text-xl font-bold text-green-600 mb-6 text-center">
+                With Zingle AI
+              </h3>
+              
+              <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6 relative">
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-2 mb-4">
+                    <CheckCircle className="w-5 h-5 text-green-500" />
+                    <span className="font-semibold text-green-800">Business-Context AI Output</span>
+                  </div>
+                  
+                  <div className="bg-white rounded p-4 text-sm">
+                    <div className="space-y-3">
+                      <div className="p-3 bg-yellow-50 rounded border-l-4 border-yellow-400">
+                        <div className="font-semibold text-gray-800">Enterprise Customer (ID: 1001)</div>
+                        <div className="text-sm text-gray-600">Status: Renewal discussion in progress</div>
+                        <div className="text-xs text-blue-600 mt-1">→ High-value client, requires strategic attention</div>
+                      </div>
+                      
+                      <div className="p-3 bg-red-50 rounded border-l-4 border-red-400">
+                        <div className="font-semibold text-gray-800">SMB Customer (ID: 1002)</div>
+                        <div className="text-sm text-gray-600">Status: Payment overdue ($2,500)</div>
+                        <div className="text-xs text-red-600 mt-1">→ Send automated reminder, escalate if no response</div>
+                      </div>
+                      
+                      <div className="p-3 bg-blue-50 rounded border-l-4 border-blue-400">
+                        <div className="font-semibold text-gray-800">New Customer (ID: 1003)</div>
+                        <div className="text-sm text-gray-600">Status: Bank verification pending</div>
+                        <div className="text-xs text-blue-600 mt-1">→ Normal onboarding process, no action needed</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Annotation Arrows */}
+                <div className="absolute -right-8 top-20 hidden lg:block">
+                  <div className="space-y-6">
+                    <div className="flex items-center space-x-2">
+                      <ArrowRight className="w-4 h-4 text-primary-600" />
+                      <span className="text-xs font-medium text-primary-600 whitespace-nowrap">Business process</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <ArrowRight className="w-4 h-4 text-primary-600" />
+                      <span className="text-xs font-medium text-primary-600 whitespace-nowrap">Column calculations</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <ArrowRight className="w-4 h-4 text-primary-600" />
+                      <span className="text-xs font-medium text-primary-600 whitespace-nowrap">Edge cases</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <ArrowRight className="w-4 h-4 text-primary-600" />
+                      <span className="text-xs font-medium text-primary-600 whitespace-nowrap">Meaning of column values</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="text-green-700 text-sm mt-4">
+                ✅ Clear business context and next actions<br/>
+                ✅ Meaningful insights from the same data<br/>
+                ✅ Actionable recommendations for each case
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

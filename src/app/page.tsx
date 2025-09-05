@@ -5,8 +5,9 @@ import { TrustedCompaniesSection } from '@/components/sections/TrustedCompaniesS
 import { ProblemSolutionSection } from '@/components/sections/ProblemSolutionSection';
 import { ValuePropositionSection } from '@/components/sections/ValuePropositionSection';
 import { CTOTestimonialSection } from '@/components/sections/CTOTestimonialSection';
+import { TimeToValueSection } from '@/components/sections/TimeToValueSection';
+import { AdoptionCurveSection } from '@/components/sections/AdoptionCurveSection';
 import { FeaturesSection } from '@/components/sections/FeaturesSection';
-import { FlywheelSection } from '@/components/sections/FlywheelSection';
 import { ContactSection } from '@/components/sections/ContactSection';
 
 export default function Home() {
@@ -17,8 +18,9 @@ export default function Home() {
       <ProblemSolutionSection />
       <ValuePropositionSection />
       <CTOTestimonialSection />
+      <TimeToValueSection />
+      <AdoptionCurveSection />
       <FeaturesSection />
-      <FlywheelSection />
       <ContactSection />
     </Layout>
   );
